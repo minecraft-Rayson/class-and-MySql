@@ -4,15 +4,22 @@ from tkinter import messagebox
 import subprocess
 
 def main():
-    try:
-        with open("install.ini", 'r') as fh:
-            pass
-    except FileNotFoundError:
-        install=input("请输入安装地址:")
-        with open("install.ini", "w") as f:
-            f.write(install)
-        f.close()
+    index=input("安装:")
+    if index=="1":
+        try:
+            with open("install.ini", 'r') as fh:
+                install=input("请输入新安装地址:")
+                with open("install.ini", "w") as f:
+                    f.write(install)
+                f.close()
+        except FileNotFoundError:
+            install=input("请输入安装地址:")
+            with open("install.ini", "w") as f:
+                f.write(install)
+            f.close()
         # Load the security file or display an error message and exit
+    else:
+        pass
     with open("install.ini", 'r') as f:
         installwz = f.read()+"awrehrs.jystd"
         try:
